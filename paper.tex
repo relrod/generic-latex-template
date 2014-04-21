@@ -1,0 +1,82 @@
+\documentclass[twoside]{article}
+
+\usepackage{lipsum}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\linespread{1.05}
+\usepackage{microtype}
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry}
+\usepackage{multicol}
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{lettrine}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{abstract}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{todonotes}
+\usepackage[utf8]{inputenc}
+
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape}
+
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\columnwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstset{
+  tabsize=2,
+  basicstyle=\footnotesize\ttfamily,
+  breaklines=true,
+  language=Java
+}
+
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Article Title Goes Here}}
+
+\author{
+\large
+\textsc{Richard B. Elrod}\thanks{Thanks to John Doe and Ashley McExample}\\[2mm]
+\normalsize Youngstown State University \\
+\normalsize rbelrod@student.ysu.edu
+\vspace{-5mm}
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent This is an abstract. Blah foo bar.
+\end{abstract}
+
+\begin{multicols}{2}
+
+\section{Introduction}
+\lettrine[nindent=0em,lines=3]{T} his is intro text. Yay.
+\todo[inline]{Write this section}
+
+\begin{lstlisting}[caption=A code sample!,language=Haskell]
+  main :: IO ()
+  main =
+    putStr "Poof!"
+\end{lstlisting}\cite{FirstCitation}
+
+\subsection{Subsections Work Too}
+\todo[inline]{Write this section}
+
+\section{Conclusion}
+\todo[inline]{Write this section}
+
+\bibliographystyle{plain}
+\bibliography{citations}
+
+\end{multicols}
+
+\listoftodos
+
+\end{document}
