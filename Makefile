@@ -10,3 +10,6 @@ open:
 
 clean:
 	rm -rf out
+
+fedoradeps:
+	sudo yum install `grep usepackage paper.tex | cut -d'{' -f2 | cut -d'}' -f1 | sed 's/^/texlive-/' | tr "\\n" " "` libfontenc latexmk texlive-latex-bin-bin texlive-latex-bin
